@@ -3,86 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     <title>KADHIRAVAN | Portfolio</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/main.js" defer></script>
 </head>
 <body>
-    <!--===== HEADER =====-->
-    <header class="l-header">
-        <nav class="nav bd-grid">
-            <div>
-                <a href="#" class="nav__logo">KADHIRAVAN</a>
+
+    <!-- Navbar Section -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="navbar__logo">
+                <a href="#home">KADHIRAVAN</a>
             </div>
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
-                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                    <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
-                    <li class="nav__item"><a href="#work" class="nav__link">Work</a></li>
-                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
-                </ul>
-            </div>
-            <div class="nav__toggle" id="nav-toggle">
-                <i class='bx bx-menu'></i>
-            </div>
+            <ul class="navbar__menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </nav>
     </header>
 
-    <main class="l-main">
-        <!--===== HOME =====-->
-        <section class="home bd-grid" id="home">
-            <div class="home__data">
-                <h1 class="home__title">Hi,<br>I'm <span class="home__title-color">KADHIRAVAN</span><br> Web Designer</h1>
-                <a href="#contact" class="button">Contact</a>
-            </div>
-
-            <div class="home__social">
-                <a href="https://www.linkedin.com/in/kadhiravan-e-g-028818327" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
-                <a href="#" class="home__social-icon"><i class='bx bxl-github'></i></a>
-            </div>
-        </section>
-
-        <!--===== ABOUT =====-->
-        <section class="about section" id="about">
-            <h2 class="section-title">About</h2>
-            <div class="about__container bd-grid">
-                <div class="about__img">
-                    <img src="https://raw.githubusercontent.com/KADHIRAVANEG/Profile-picture/ea86656ed8216188e42f165c632fffd1aea96a3e/IMG_20240930_135658_186.webp" alt="KADHIRAVAN">
-                </div>
-                <div>
-                    <h2 class="about__subtitle">I'm KADHIRAVAN</h2>
-                    <p class="about__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita fugiat tempora, assumenda voluptates aut nemo recusandae cumque.</p>           
-                </div>                                   
-            </div>
-        </section>
-
-        <!--===== CONTACT =====-->
-        <section class="contact section" id="contact">
-            <h2 class="section-title">Contact</h2>
-            <div class="contact__container bd-grid">
-                <form action="https://formspree.io/f/xwppjnle" method="POST" class="contact__form">
-                    <input type="text" name="name" placeholder="Name" class="contact__input" required>
-                    <input type="email" name="email" placeholder="Email" class="contact__input" required>
-                    <textarea name="message" cols="0" rows="10" class="contact__input" placeholder="Your message..." required></textarea>
-                    <input type="submit" value="Send" class="contact__button button">
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <!--===== FOOTER =====-->
-    <footer class="footer">
-        <p class="footer__title">KADHIRAVAN</p>
-        <div class="footer__social">
-            <a href="https://www.linkedin.com/in/kadhiravan-e-g-028818327" class="footer__icon"><i class='bx bxl-linkedin'></i></a>
-            <a href="#" class="footer__icon"><i class='bx bxl-github'></i></a>
-            <a href="#" class="footer__icon"><i class='bx bxl-twitter'></i></a>
+    <!-- Home Section -->
+    <section id="home" class="home">
+        <div class="home__content">
+            <h1>Hi, I'm <span class="highlight">KADHIRAVAN</span></h1>
+            <p>Web Designer & Developer</p>
+            <a href="#contact" class="btn">Contact Me</a>
         </div>
-        <p class="footer__copy">&#169; KADHIRAVAN. All rights reserved</p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about__content">
+            <h2>About Me</h2>
+            <p>I'm a passionate web designer and developer with experience in HTML, CSS, and JavaScript. I strive to create beautiful and functional websites.</p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <h2>Skills</h2>
+        <div class="skills__container">
+            <div class="skill">
+                <h3>HTML</h3>
+                <div class="skill__bar">
+                    <div class="skill__progress html"></div>
+                </div>
+            </div>
+            <div class="skill">
+                <h3>CSS</h3>
+                <div class="skill__bar">
+                    <div class="skill__progress css"></div>
+                </div>
+            </div>
+            <div class="skill">
+                <h3>JavaScript</h3>
+                <div class="skill__bar">
+                    <div class="skill__progress javascript"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Section -->
+    <section id="work" class="work">
+        <h2>My Work</h2>
+        <div class="work__grid">
+            <div class="work__item">
+                <img src="your-image1.jpg" alt="Project 1">
+                <h3>Project 1</h3>
+            </div>
+            <div class="work__item">
+                <img src="your-image2.jpg" alt="Project 2">
+                <h3>Project 2</h3>
+            </div>
+            <div class="work__item">
+                <img src="your-image3.jpg" alt="Project 3">
+                <h3>Project 3</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <form action="https://formspree.io/f/xwppjnle" method="POST">
+            <input type="text" placeholder="Your Name" name="name" required>
+            <input type="email" placeholder="Your Email" name="email" required>
+            <textarea placeholder="Your Message" name="message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer__social">
+            <a href="https://www.linkedin.com/in/kadhiravan-e-g-028818327" class="footer__icon">LinkedIn</a>
+            <a href="https://github.com/KADHIRAVANEG" class="footer__icon">GitHub</a>
+        </div>
+        <p>&copy; Kadhiravan 2025</p>
     </footer>
 
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="assets/js/main.js"></script>
 </body>
 </html>
