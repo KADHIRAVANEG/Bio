@@ -11,7 +11,49 @@
         body { font-family: Arial, sans-serif; }
         .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('background.jpg') center/cover; color: white; padding: 100px 0; }
         .highlight { color: #f39c12; }
-        .profile-img { width: 300px; height: 300px; border-radius: 70%; border: 7px solid black; }
+        
+/* Styling for Profile Image */
+.profile-img {
+    width: 150px; /* Adjust the size as needed */
+    height: 150px;
+    border-radius: 50%; /* Makes the image circular */
+    border: 5px solid black; /* Black border around the image */
+    object-fit: cover; /* Ensures the image covers the circular area */
+    margin-bottom: 20px; /* Adds margin below the image */
+}
+
+/* About Section */
+.about__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.about__text-container {
+    max-width: 800px;
+    margin-left: 20px;
+}
+
+.about__text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.about__subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.section-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+        
         .progress { height: 20px; margin-bottom: 10px; }
         .dark-mode { background-color: #121212; color: white; }
         .social-icons a { margin: 0 10px; color: white; font-size: 24px; }
@@ -46,8 +88,33 @@
             <p>Web Designer & Cybersecurity Enthusiast</p>
         </div>
     </header>
-
     <!-- About Section -->
+<section class="about section" id="about">
+    <h2 class="section-title">About</h2>
+    <div class="about__container bd-grid">
+        <div class="about__img">
+            <!-- Profile Image in Circle -->
+            <img src="https://raw.githubusercontent.com/KADHIRAVANEG/Profile-picture/ea86656ed8216188e42f165c632fffd1aea96a3e/IMG_20240930_135658_186.webp" alt="KADHIRAVAN" class="profile-img">
+        </div>
+        
+        <div class="about__text-container">
+            <h2 class="about__subtitle">I'm KADHIRAVAN</h2>
+            <p class="about__text">My name is Kadhiravan, and I am deeply passionate about the world of web design and cybersecurity. From an early age, I’ve been intrigued by how the internet connects people and businesses, and I’ve always sought to understand the technicalities that make it work. This curiosity eventually led me to pursue a career in the ever-evolving field of cybersecurity, while also honing my skills as a web designer.</p>
+
+            <p class="about__text">Web design has always fascinated me due to its creativity and impact on user experience. It’s not just about creating aesthetically pleasing websites; it’s about ensuring that the users who visit those sites have a seamless and efficient experience. Whether it's a personal portfolio, a business landing page, or an e-commerce website, every design decision can significantly impact how users perceive the brand and interact with the content. With this understanding, I have developed a keen interest in making websites both visually appealing and functional. I constantly strive to improve my skills by learning new technologies and implementing them into my projects. Every day, I push myself to understand the intricacies of web development, from responsive design and HTML5 to CSS3 and JavaScript, and I incorporate those learnings into my work.</p>
+
+            <p class="about__text">Alongside web design, cybersecurity is another field that has captured my attention. In today’s increasingly digital world, securing sensitive data and maintaining privacy are more important than ever. Cyber threats are constantly evolving, and I am committed to understanding the complexities of these challenges. My interest in cybersecurity stems from a desire to protect online systems from malicious attacks and ensure that data remains safe. I have gained knowledge in areas such as network security, encryption, ethical hacking, and penetration testing, which allows me to identify vulnerabilities and design systems that are secure from potential threats.</p>
+
+            <p class="about__text">As a web designer and cybersecurity enthusiast, my goal is to merge both disciplines and create user-friendly, innovative, and secure web applications. I am always looking for ways to integrate security measures into my web designs, ensuring that users not only have a great experience but also feel confident in the safety of their personal data. This includes using encryption for data protection, designing secure login processes, and preventing common vulnerabilities such as cross-site scripting (XSS) and SQL injection.</p>
+
+            <p class="about__text">In addition to my technical skills, I believe in the power of continuous learning. The fields of web design and cybersecurity are fast-paced and ever-changing, and staying updated with the latest trends and best practices is essential. To keep up with these developments, I regularly participate in online forums, communities, and cybersecurity competitions such as TryHackMe. These platforms allow me to challenge myself, learn from peers, and apply my skills in practical, real-world scenarios.</p>
+
+            <p class="about__text">Ultimately, my aim is to make a positive impact on the digital world by combining my skills in web design and cybersecurity. Whether it’s building secure websites for businesses, creating engaging user experiences, or protecting data from cyber threats, I am dedicated to contributing to the internet’s safety and accessibility. I am excited about the opportunities that lie ahead and am determined to continue learning and growing in both fields.</p>
+        </div>                                   
+    </div>
+</section>
+
+    <!-- About Section 
     <section id="about" class="container text-center my-5">
         <center><h2>About Me</h2></center>
         <div class="row">
@@ -72,7 +139,7 @@
                
             </div>
         </div>
-    </section>
+    </section>-->
 
     <!-- Skills Section -->
     <section id="skills" class="container my-5">
@@ -135,14 +202,14 @@
     </footer>
 
     <!-- Footer -->
-    <footer class="text-center bg-dark text-white py-3">
+    <!--<footer class="text-center bg-dark text-white py-3">
         <div class="social-icons">
             <a href="https://www.linkedin.com/in/kadhiravan-e-g-028818327" class="footer__icon"><i class='bx bxl-linkedin'></i></a>
             <a href="https://www.instagram.com/__kadhiravan__?igsh=ZHg1YnozanBvOGFs" class="footer__icon"><i class='bx bxl-instagram'></i></a>
             <a href="https://tryhackme.com/r/p/JOKER53" class="footer__icon"><i class='bx bxl-tryhackme'></i></a>
         </div>
         <p>© 2025 Kadhiravan. All Rights Reserved.</p>
-    </footer>
+    </footer>-->
 
     <script>
         document.getElementById('dark-mode-toggle').addEventListener('click', function() {
