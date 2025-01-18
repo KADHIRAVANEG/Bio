@@ -1,96 +1,213 @@
-/* Global Styles */
-body {
-    font-family: 'Arial', sans-serif;
+/* General Styles */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
     background-color: #f4f4f4;
+    color: #333;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-button {
-    cursor: pointer;
-}
-
-/* Header Styles */
-.l-header {
-    background-color: #333;
-    padding: 20px 0;
-}
-
-.nav {
+/* Navbar */
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    background-color: #333;
+    padding: 20px;
 }
 
-.nav__logo {
-    color: #fff;
+.navbar__logo a {
+    color: white;
     font-size: 24px;
+    text-decoration: none;
 }
 
-.nav__menu {
+.navbar__menu {
     display: flex;
     list-style: none;
 }
 
-.nav__menu--active {
-    display: block;
+.navbar__menu li {
+    margin-left: 20px;
 }
 
-.nav__list {
-    display: flex;
-    gap: 20px;
-}
-
-.nav__link {
-    color: #fff;
-    font-size: 18px;
-    padding: 8px 15px;
-    border-radius: 5px;
-}
-
-.nav__link:hover, .active-link {
-    background-color: #555;
-}
-
-/* Contact Form */
-.contact__form {
-    display: grid;
-    gap: 20px;
-}
-
-.contact__input {
-    padding: 10px;
+.navbar__menu li a {
+    color: white;
+    text-decoration: none;
     font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    text-transform: uppercase;
 }
 
-.contact__button {
-    background-color: #333;
-    color: #fff;
-    padding: 12px 20px;
+/* Home Section */
+.home {
+    background-color: #ff6f61;
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.home__content h1 {
+    font-size: 36px;
+}
+
+.highlight {
+    color: #333;
+}
+
+.home__content p {
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+/* About Section */
+.about {
+    background-color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.about__content h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.about__content p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Skills Section */
+.skills {
+    background-color: #f4f4f4;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.skills__container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.skill {
+    width: 30%;
+}
+
+.skill__bar {
+    background-color: #ddd;
+    border-radius: 5px;
+    height: 10px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.skill__progress {
+    height: 100%;
+    border-radius: 5px;
+}
+
+.html {
+    width: 90%;
+    background-color: #e34c26;
+}
+
+.css {
+    width: 80%;
+    background-color: #264de4;
+}
+
+.javascript {
+    width: 70%;
+    background-color: #f0db4f;
+}
+
+/* Work Section */
+.work {
+    background-color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.work__grid {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.work__item {
+    width: 30%;
+}
+
+.work__item img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* Contact Section */
+.contact {
+    background-color: #f4f4f4;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.contact form input, .contact form textarea {
+    width: 80%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact form button {
+    background-color: #ff6f61;
+    color: white;
+    padding: 15px 25px;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
 }
 
-.contact__button:hover {
-    background-color: #555;
+.contact form button:hover {
+    background-color: #e34c26;
 }
 
-/* Error styles for invalid fields */
-.contact__input.error {
-    border: 1px solid red;
-    background-color: #fdd;
+/* Footer Section */
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
 }
-.contact__input:focus.error {
-    outline: none;
-    border: 1px solid darkred;
+
+.footer__social a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .navbar__menu {
+        display: block;
+        text-align: center;
+    }
+
+    .skills__container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .work__grid {
+        flex-direction: column;
+    }
+
+    .footer__social {
+        display: flex;
+        flex-direction: column;
+    }
 }
