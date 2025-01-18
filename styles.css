@@ -1,0 +1,96 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* Header Styles */
+.l-header {
+    background-color: #333;
+    padding: 20px 0;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.nav__logo {
+    color: #fff;
+    font-size: 24px;
+}
+
+.nav__menu {
+    display: flex;
+    list-style: none;
+}
+
+.nav__menu--active {
+    display: block;
+}
+
+.nav__list {
+    display: flex;
+    gap: 20px;
+}
+
+.nav__link {
+    color: #fff;
+    font-size: 18px;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+.nav__link:hover, .active-link {
+    background-color: #555;
+}
+
+/* Contact Form */
+.contact__form {
+    display: grid;
+    gap: 20px;
+}
+
+.contact__input {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.contact__button {
+    background-color: #333;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+.contact__button:hover {
+    background-color: #555;
+}
+
+/* Error styles for invalid fields */
+.contact__input.error {
+    border: 1px solid red;
+    background-color: #fdd;
+}
+.contact__input:focus.error {
+    outline: none;
+    border: 1px solid darkred;
+}
