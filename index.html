@@ -3,428 +3,1464 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kadhiravan | Profile</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <title>KADHIRAVAN | Portfolio</title>
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=Rubik+Glitch&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
-        /* Dark Mode Button */
-.hacker-red-mode-toggle {
-    background-color: transparent;
-    border: none;
-    color: #f00;
-    cursor: pointer;
-    font-size: 1.5rem;
-}
-
-/* Dark Mode Active Class */
-body.hacker-red-mode .hacker-red-mode-toggle {
-    color: #fff; /* Change button color when dark mode is active */
-}
-
-/* Dark Mode Styles */
-body.hacker-red-mode {
-    background-color: #121212; /* Dark background */
-    color: white; /* White text color for dark mode */
-}
-
-/* Button Styles */
-button {
-    background-color: #ff6666; /* Soft Red Button */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-/* Button Hover Effect */
-button:hover {
-    background-color: #ff9999; /* Slightly lighter red on hover */
-}
-
-/* Header and Footer Styles */
-header, footer {
-    background-color: #7a0000; /* Lighter red for headers and footers */
-    color: white;
-    padding: 15px;
-    text-align: center;
-}
-
-/* Dark Mode Button Color Change */
-body.hacker-red-mode header, body.hacker-red-mode footer {
-    background-color: #1a0000; /* Darker red for dark mode */
-}
-
-/* Progress Bar Style */
-.progress {
-    height: 20px;
-    margin-bottom: 10px;
-}
-
-.progress-bar {
-    background-color: #ff6666; /* Soft Red for progress bars */
-}
-
-/* Hover Effects for Social Icons */
-.footer__icon, .home__social-icon {
-    transition: transform 0.3s ease;
-}
-
-.footer__icon:hover, .home__social-icon:hover {
-    transform: scale(1.2); /* Slightly enlarges the icons */
-}
-
-/* Dark Mode Text and Background Styling */
-body.hacker-red-mode .about__text, body.hacker-red-mode .section-title {
-    color: white; /* Ensure text is readable in dark mode */
-}
-
-/* Dark Mode Toggle Button Styles */
-.hacker-red-mode-toggle {
-    background-color: transparent;
-    border: none;
-    color: #f00;
-    cursor: pointer;
-    font-size: 1.5rem;
-}
-
-body.hacker-red-mode .hacker-red-mode-toggle {
-    color: #fff;
-}
-/* Buttons */
-button {
-    background-color: #ff6666; /* Soft Red Button */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-/* Button hover effect */
-button:hover {
-    background-color: #ff9999; /* Slightly lighter red on hover */
-}
-
-/* Header and footer */
-header, footer {
-    background-color: #7a0000; /* Lighter red for headers and footers */
-    color: white;
-    padding: 15px;
-    text-align: center;
-}
-        html {
-    scroll-behavior: smooth;
+        /* ========== CSS VARIABLES - JOKER THEME ========== */
+        :root {
+            /* Joker colors - Dark mode */
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #1a1a1a;
+            --bg-tertiary: #222222;
+            --text-primary: #e0e0e0;
+            --text-secondary: #39FF14;
+            --accent-purple: #4B0082;
+            --accent-green: #39FF14;
+            --accent-red: #8B0000;
+            --border-color: #4B0082;
+            --card-bg: rgba(20, 0, 20, 0.9);
+            --shadow-color: rgba(57, 255, 20, 0.3);
+            --nav-bg: rgba(10, 0, 10, 0.95);
         }
-        /* Fade In Animation for Text */
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
-.about__text {
-    animation: fadeInUp 1.5s ease-out forwards;
-}
+        /* Light mode - Joker theme */
+        [data-theme="light"] {
+            --bg-primary: #f5f0f5;
+            --bg-secondary: #e8e0e8;
+            --bg-tertiary: #d8d0d8;
+            --text-primary: #2a1a2a;
+            --text-secondary: #2d7a2d;
+            --accent-purple: #8a2be2;
+            --accent-green: #32cd32;
+            --accent-red: #cd5c5c;
+            --border-color: #8a2be2;
+            --card-bg: rgba(245, 240, 245, 0.9);
+            --shadow-color: rgba(50, 205, 50, 0.3);
+            --nav-bg: rgba(245, 240, 245, 0.95);
+        }
 
-.section-title {
-    animation: fadeInUp 1.5s ease-out forwards;
-    animation-delay: 0.3s;
-}
-        /* Slide in from the left */
-@keyframes slide-in-left {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
-        transform: translateX(0);
-    }
-}
+        /* ========== GLOBAL STYLES ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
 
-.profile-img {
-    animation: slide-in-left 1s ease-out forwards;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-.about__text-container {
-    animation: slide-in-left 1.2s ease-out forwards;
-}
-        /* Hover Effect for Buttons */
-.button {
-    transition: transform 0.3s ease;
-}
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Share Tech Mono', monospace;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
 
-.button:hover {
-    transform: scale(1.1); /* Slightly enlarges the button */
-}
+        /* ========== BINARY BACKGROUND ========== */
+        .binary-rain-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+            background: #000000; 
+        }
 
-/* Hover Effect for Social Media Icons */
-.footer__icon, .home__social-icon {
-    transition: transform 0.3s ease;
-}
+        .binary-column {
+            position: absolute;
+            top: -100px;
+            color: #ff0000;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.2rem;
+            line-height: 1.2;
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            white-space: nowrap;
+            animation: binaryRain linear infinite;
+            opacity: 0.6;
+            text-shadow: 0 0 8px #ff0000;
+            letter-spacing: 5px;
+        }
 
-.footer__icon:hover, .home__social-icon:hover {
-    transform: scale(1.2); /* Slightly enlarges the icons */
-}
-        body { font-family: Arial, sans-serif; }
-        .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('background.jpg') center/cover; color: white; padding: 100px 0; }
-        .highlight { color: #f39c12; }
-        
-/* Styling for Profile Image */
-.profile-img {
-    width: 150px; /* Adjust the size as needed */
-    height: 150px;
-    border-radius: 50%; /* Makes the image circular */
-    border: 5px solid black; /* Black border around the image */
-    object-fit: cover; /* Ensures the image covers the circular area */
-    margin-bottom: 20px; /* Adds margin below the image */
-}
+        @keyframes binaryRain {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(100vh); }
+        }
 
-/* About Section */
-.about__container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-}
+        /* Purple overlay */
+        .purple-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 50%, rgba(75, 0, 130, 0.2) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
 
-.about__text-container {
-    max-width: 800px;
-    margin-left: 20px;
-}
+        /* ========== LOADING ANIMATION ========== */
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0a0a;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
 
-.about__text {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #333;
-}
+        #loading.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
 
-.about__subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
+        .loader {
+            text-align: center;
+        }
 
-.section-title {
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 20px;
-}
+        .joker-spinner {
+            width: 100px;
+            height: 100px;
+            border: 5px solid #4B0082;
+            border-top-color: #39FF14;
+            border-radius: 50%;
+            animation: spin 1s infinite linear;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
 
+        .joker-spinner::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            animation: bounce 0.5s infinite alternate;
+            filter: drop-shadow(0 0 5px #39FF14);
+        }
 
-        
-        .progress { height: 20px; margin-bottom: 10px; }
-        .dark-mode { background-color: #121212; color: white; }
-        .social-icons a { margin: 0 10px; color: white; font-size: 24px; }
-        .social-icons a:hover { color: #f39c12; }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes bounce {
+            to { transform: translate(-50%, -60%); }
+        }
+
+        .loading-text {
+            font-family: 'Orbitron', sans-serif;
+            color: #39FF14;
+            font-size: 1.2rem;
+            animation: blink 1s infinite;
+            text-shadow: 0 0 10px #39FF14;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* ========== NAVIGATION BAR ========== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--accent-purple);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Rubik Glitch', cursive;
+            font-size: 1.8rem;
+            color: var(--accent-green);
+            text-decoration: none;
+            position: relative;
+            text-shadow: 0 0 10px var(--accent-green);
+        }
+
+        .logo::after {
+            content: '_';
+            animation: blink 1s infinite;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: all 0.3s;
+        }
+
+        .nav-links a::before {
+            content: '[';
+            position: absolute;
+            left: -10px;
+            opacity: 0;
+            transition: all 0.3s;
+            color: var(--accent-green);
+        }
+
+        .nav-links a::after {
+            content: ']';
+            position: absolute;
+            right: -10px;
+            opacity: 0;
+            transition: all 0.3s;
+            color: var(--accent-green);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-green);
+            text-shadow: 0 0 10px var(--accent-green);
+        }
+
+        .nav-links a:hover::before,
+        .nav-links a:hover::after {
+            opacity: 1;
+        }
+
+        /* Dark/Light mode toggle */
+        .theme-toggle {
+            background: transparent;
+            border: 2px solid var(--accent-purple);
+            color: var(--accent-green);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            transition: all 0.3s;
+            margin-left: 1rem;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-green);
+            color: var(--bg-primary);
+            transform: rotate(180deg);
+            box-shadow: 0 0 20px var(--accent-green);
+        }
+
+        /* Mobile menu button */
+        .mobile-menu {
+            display: none;
+            background: transparent;
+            border: 2px solid var(--accent-purple);
+            color: var(--accent-green);
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            font-size: 1.3rem;
+        }
+
+        /* ========== MAIN CONTAINER ========== */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 6rem 3rem 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ========== SECTION STYLES ========== */
+        section {
+            margin: 6rem 0;
+            scroll-margin-top: 80px;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: var(--accent-green);
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px var(--accent-green);
+        }
+
+        .section-title::before {
+            content: '#';
+            color: var(--accent-purple);
+            margin-right: 0.5rem;
+            opacity: 0.7;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-green), transparent);
+        }
+
+        /* ========== ABOUT ME SECTION ========== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .cyber-frame {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1;
+            border: 3px solid var(--accent-green);
+            overflow: hidden;
+            box-shadow: 0 0 30px var(--shadow-color), inset 0 0 30px rgba(57, 255, 20, 0.3);
+            animation: framePulse 3s infinite;
+        }
+
+        @keyframes framePulse {
+            0%, 100% { box-shadow: 0 0 30px var(--shadow-color), inset 0 0 30px rgba(57, 255, 20, 0.3); }
+            50% { box-shadow: 0 0 50px var(--accent-purple), inset 0 0 50px rgba(75, 0, 130, 0.3); }
+        }
+
+        .cyber-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(50%) contrast(120%);
+            transition: all 0.3s;
+        }
+
+        .cyber-frame:hover img {
+            filter: grayscale(0%) contrast(100%);
+            transform: scale(1.05);
+        }
+
+        .cyber-frame::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(57, 255, 20, 0.1) 50%, transparent 70%);
+            animation: scan 4s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .hacker-tag {
+            position: absolute;
+            bottom: -15px;
+            right: 20px;
+            background: var(--bg-secondary);
+            border: 2px solid var(--accent-purple);
+            padding: 0.5rem 1rem;
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent-green);
+            transform: rotate(-2deg);
+            z-index: 3;
+            box-shadow: 0 0 15px var(--shadow-color);
+        }
+
+        .about-content {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--accent-purple);
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-content::before {
+            content: 'ABOUT_ME()';
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent-green);
+            opacity: 0.1;
+            font-size: 5rem;
+            transform: rotate(-5deg);
+            pointer-events: none;
+        }
+
+        .about-highlight {
+            font-family: 'Rubik Glitch', cursive;
+            color: var(--accent-green);
+            font-size: 1.5rem;
+            margin: 1.5rem 0;
+            padding-left: 1rem;
+            border-left: 4px solid var(--accent-purple);
+            text-shadow: 0 0 8px var(--accent-green);
+        }
+
+        .terminal-quote {
+            background: rgba(0,0,0,0.5);
+            padding: 1.5rem;
+            border: 1px solid var(--accent-purple);
+            margin-top: 2rem;
+            font-style: italic;
+            color: #b3ffb3;
+        }
+
+        .terminal-quote::before {
+            content: '$> ';
+            color: var(--accent-green);
+        }
+
+        /* ========== SKILLS SECTION ========== */
+        .skills-showcase {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--accent-purple);
+            padding: 2.5rem 2rem 2rem;
+            position: relative;
+            overflow: visible;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-green);
+            box-shadow: 0 10px 40px var(--shadow-color);
+        }
+
+        .skill-category::before {
+            content: attr(data-category);
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: var(--bg-primary);
+            padding: 5px 15px;
+            color: var(--accent-green);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 2px solid var(--accent-purple);
+            z-index: 10;
+            white-space: nowrap;
+            box-shadow: 0 0 15px var(--shadow-color);
+        }
+
+        .skill-category h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent-purple);
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            text-shadow: 0 0 8px var(--accent-purple);
+            padding-top: 0.5rem;
+        }
+
+        .skill-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .skill-name {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-name i {
+            color: var(--accent-green);
+            width: 20px;
+            text-shadow: 0 0 5px var(--accent-green);
+        }
+
+        .skill-percent {
+            color: var(--accent-green);
+            font-weight: bold;
+            text-shadow: 0 0 5px var(--accent-green);
+        }
+
+        .skill-progress {
+            height: 25px;
+            background: var(--bg-tertiary);
+            border: 2px solid var(--accent-purple);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-purple), var(--accent-green));
+            width: 0%;
+            position: relative;
+            animation: skillGlow 2s infinite;
+        }
+
+        @keyframes skillGlow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .skill-progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: skillShine 2s infinite;
+        }
+
+        @keyframes skillShine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .skill-badge-container {
+            margin-top: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-badge {
+            background: transparent;
+            border: 2px solid var(--accent-green);
+            color: var(--accent-green);
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            text-shadow: 0 0 5px var(--accent-green);
+        }
+
+        .skill-badge:hover {
+            background: var(--accent-green);
+            color: #000;
+            border-color: var(--accent-green);
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px var(--accent-green);
+        }
+
+        /* ========== PROJECT SECTION ========== */
+        .featured-project {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 3rem;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 3px solid var(--accent-purple);
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-project::before {
+            content: 'PROJECT_01';
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 5rem;
+            color: var(--accent-green);
+            opacity: 0.1;
+            font-family: 'Orbitron', sans-serif;
+            transform: rotate(-5deg);
+        }
+
+        .project-media {
+            position: relative;
+            min-height: 300px;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-green));
+            position: relative;
+            overflow: hidden;
+            border: 2px solid var(--accent-purple);
+        }
+
+        .project-image::before {
+            content: 'INTELLIGENT_COMPILER';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Rubik Glitch', cursive;
+            font-size: 2rem;
+            color: rgba(57, 255, 20, 0.2);
+            white-space: nowrap;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            transition: all 0.3s;
+        }
+
+        .project-image:hover img {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        .project-stats {
+            display: flex;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .project-stat {
+            text-align: center;
+        }
+
+        .project-stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            color: var(--accent-green);
+            text-shadow: 0 0 10px var(--accent-green);
+        }
+
+        .project-stat-label {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+        }
+
+        .project-tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .tech-tag {
+            background: transparent;
+            border: 2px solid var(--accent-green);
+            color: var(--accent-green);
+            padding: 0.5rem 1.5rem;
+            font-size: 1rem;
+            transition: all 0.3s;
+            text-shadow: 0 0 5px var(--accent-green);
+        }
+
+        .tech-tag:hover {
+            background: var(--accent-green);
+            color: #000;
+            border-color: var(--accent-green);
+            box-shadow: 0 0 20px var(--accent-green);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .project-link {
+            background: transparent;
+            border: 2px solid var(--accent-purple);
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 1rem 2rem;
+            font-family: 'Orbitron', sans-serif;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            position: relative;
+            z-index: 10;
+        }
+
+        .project-link:hover {
+            background: var(--accent-green);
+            color: #000;
+            border-color: var(--accent-green);
+            box-shadow: 0 0 30px var(--accent-green);
+        }
+
+        /* ========== CONTACT SECTION ========== */
+        .contact-cyber {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 3px solid var(--accent-purple);
+            padding: 3rem;
+        }
+
+        .contact-info-cyber h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent-green);
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            text-shadow: 0 0 10px var(--accent-green);
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            border: 2px solid var(--accent-purple);
+            transition: all 0.3s;
+        }
+
+        .contact-detail:hover {
+            border-color: var(--accent-green);
+            transform: translateX(10px);
+            box-shadow: 0 0 20px var(--shadow-color);
+        }
+
+        .contact-detail i {
+            color: var(--accent-green);
+            width: 30px;
+            font-size: 1.3rem;
+            text-shadow: 0 0 5px var(--accent-green);
+        }
+
+        .contact-social {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-social a {
+            width: 50px;
+            height: 50px;
+            border: 2px solid var(--accent-purple);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-green);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1.3rem;
+        }
+
+        .contact-social a:hover {
+            border-color: var(--accent-green);
+            transform: rotate(360deg);
+            background: var(--accent-green);
+            color: #000;
+            box-shadow: 0 0 30px var(--accent-green);
+        }
+
+        .cyber-form {
+            background: rgba(0,0,0,0.5);
+            padding: 2rem;
+            border: 2px solid var(--accent-purple);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .form-group label {
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            background: var(--bg-primary);
+            padding: 0 10px;
+            color: var(--accent-green);
+            font-size: 0.9rem;
+            border-left: 2px solid var(--accent-purple);
+            border-right: 2px solid var(--accent-purple);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: var(--bg-tertiary);
+            border: 2px solid var(--accent-purple);
+            color: var(--text-primary);
+            font-family: 'Share Tech Mono', monospace;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-green);
+            box-shadow: 0 0 30px var(--shadow-color);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .cyber-submit {
+            width: 100%;
+            background: transparent;
+            border: 3px solid var(--accent-green);
+            color: var(--accent-green);
+            padding: 1.2rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            text-shadow: 0 0 5px var(--accent-green);
+        }
+
+        .cyber-submit:hover {
+            background: var(--accent-green);
+            color: #000;
+            box-shadow: 0 0 50px var(--shadow-color);
+        }
+
+        .cyber-submit::before {
+            content: '>>';
+            position: absolute;
+            left: -30px;
+            transition: all 0.3s;
+        }
+
+        .cyber-submit::after {
+            content: '<<';
+            position: absolute;
+            right: -30px;
+            transition: all 0.3s;
+        }
+
+        .cyber-submit:hover::before {
+            left: 20px;
+        }
+
+        .cyber-submit:hover::after {
+            right: 20px;
+        }
+
+        /* ========== FOOTER ========== */
+        .cyber-footer {
+            margin-top: 6rem;
+            padding: 3rem 0;
+            border-top: 3px solid var(--accent-purple);
+            text-align: center;
+            position: relative;
+        }
+
+        .footer-glitch {
+            font-family: 'Rubik Glitch', cursive;
+            font-size: 2rem;
+            color: var(--accent-green);
+            opacity: 0.2;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            text-shadow: 0 0 10px var(--accent-green);
+        }
+
+        /* ========== RESPONSIVE DESIGN ========== */
+        @media (max-width: 1100px) {
+            .about-grid,
+            .skills-showcase,
+            .featured-project,
+            .contact-cyber {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                max-width: 350px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                padding: 5rem 1rem 1rem;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--nav-bg);
+                backdrop-filter: blur(10px);
+                padding: 2rem;
+                flex-direction: column;
+                border-bottom: 2px solid var(--accent-purple);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .skills-showcase {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Binary Rain Background -->
+    <div class="binary-rain-container" id="binaryRain"></div>
+    <div class="purple-overlay"></div>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            <div class="nav__toggle" i'd="nav__toggle">
-                <i class='haker-red-mode-toggle'></i>
-                </div>
-                <button id="dark-mode-toggle" class="hacker-red-mode-toggle">
-    <i class="fas fa-moon"></i>
+    <!-- Loading Animation -->
+    <div id="loading">
+        <div class="loader">
+            <div class="joker-spinner"></div>
+            <div class="loading-text">INITIALIZING JOKER THEME...</div>
+            <div class="loading-text" style="font-size: 0.9rem; margin-top: 1rem;">Why so serious?</div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">KADHIRAVAN</a>
+            
+            <div class="nav-links" id="navLinks">
+                <a href="#about">[ABOUT]</a>
+                <a href="#skills">[SKILLS]</a>
+                <a href="#project">[PROJECT]</a>
+                <a href="#contact">[CONTACT]</a>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
                 </button>
             </div>
+
+            <button class="mobile-menu" id="mobileMenu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero text-center">
-        <div class="container">
-            <h1>𝙷𝙸! 𝚆𝙴𝙻𝙲𝙾𝙼𝙴 <span class="highlight"> 𝚃𝙾 𝙼𝚈 𝙿𝚁𝙾𝙵𝙸𝙻𝙴</span></h1>
-            <p>Web Designer & Cybersecurity Enthusiast</p>
-        </div>
-    </header>
-    <!-- About Section -->
-<section class="about section" id="about">
-    <h2 class="section-title">About</h2>
-    <div class="about__container bd-grid">
-        <div class="about__img">
-            <!-- Profile Image in Circle -->
-            <img src="https://raw.githubusercontent.com/KADHIRAVANEG/Profile-picture/ea86656ed8216188e42f165c632fffd1aea96a3e/IMG_20240930_135658_186.webp" alt="KADHIRAVAN" class="profile-img">
-        </div>
-        
-        <div class="about__text-container">
-            <h2 class="about__subtitle">I'm KADHIRAVAN</h2>
-            <p class="about__text">I am deeply passionate about the world of web design and cybersecurity. From an early age, I’ve been intrigued by how the internet connects people and businesses, and I’ve always sought to understand the technicalities that make it work. This curiosity eventually led me to pursue a career in the ever-evolving field of cybersecurity, while also honing my skills as a web designer.</p>
+    <div class="container">
+        <!-- ABOUT ME SECTION -->
+        <section id="about">
+            <h2 class="section-title">ABOUT_ME</h2>
+            <div class="about-grid">
+                <div class="about-image">
+                    <div class="cyber-frame">
+                        <!-- YOUR PHOTO HERE - put in images/ folder -->
+                        <img src="images/my-photo.jpg" alt="KADHIRAVAN">
+                    </div>
+                    <div class="hacker-tag">
+                        <i class="fas fa-shield-alt"></i> ETHICAL HACKER
+                    </div>
+                </div>
 
-            <p class="about__text">Web design has always fascinated me due to its creativity and impact on user experience. It’s not just about creating aesthetically pleasing websites; it’s about ensuring that the users who visit those sites have a seamless and efficient experience. Whether it's a personal portfolio, a business landing page, or an e-commerce website, every design decision can significantly impact how users perceive the brand and interact with the content. With this understanding, I have developed a keen interest in making websites both visually appealing and functional. I constantly strive to improve my skills by learning new technologies and implementing them into my projects. Every day, I push myself to understand the intricacies of web development, from responsive design and HTML5 to CSS3 and JavaScript, and I incorporate those learnings into my work.</p>
+                <div class="about-content">
+                    <h3 style="font-family: 'Orbitron', sans-serif; color: var(--accent-green); margin-bottom: 1rem; text-shadow: 0 0 8px var(--accent-green);">
+                        $> whoami
+                    </h3>
+                    <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+                        I'm <span style="color: var(--accent-green); font-weight: bold; text-shadow: 0 0 8px var(--accent-green);">KADHIRAVAN</span> - Cybersecurity Enthusiast with a touch of Joker's chaos.
+                    </p>
+                    
+                    <div class="about-highlight">
+                        "Why so serious? Let's put a smile on that firewall."
+                    </div>
 
-            <p class="about__text">Alongside web design, cybersecurity is another field that has captured my attention. In today’s increasingly digital world, securing sensitive data and maintaining privacy are more important than ever. Cyber threats are constantly evolving, and I am committed to understanding the complexities of these challenges. My interest in cybersecurity stems from a desire to protect online systems from malicious attacks and ensure that data remains safe. I have gained knowledge in areas such as network security, encryption, ethical hacking, and penetration testing, which allows me to identify vulnerabilities and design systems that are secure from potential threats.</p>
+                    <p style="margin: 1.5rem 0;">
+                        By day, I'm a web designer crafting beautiful interfaces. By night, I'm a cyber joker hunting vulnerabilities and securing digital fortresses. I believe in controlled chaos - the perfect balance between creativity and security.
+                    </p>
 
-            <p class="about__text">As a web designer and cybersecurity enthusiast, my goal is to merge both disciplines and create user-friendly, innovative, and secure web applications. I am always looking for ways to integrate security measures into my web designs, ensuring that users not only have a great experience but also feel confident in the safety of their personal data. This includes using encryption for data protection, designing secure login processes, and preventing common vulnerabilities such as cross-site scripting (XSS) and SQL injection.</p>
+                    <div class="terminal-quote">
+                        <span style="color: var(--accent-green);">root@kadhiravan:~#</span> cat philosophy.txt<br>
+                        > Hacking is an art form<br>
+                        > Security is a mindset<br>
+                        > Chaos is just order waiting to be decoded
+                    </div>
 
-            <p class="about__text">In addition to my technical skills, I believe in the power of continuous learning. The fields of web design and cybersecurity are fast-paced and ever-changing, and staying updated with the latest trends and best practices is essential. To keep up with these developments, I regularly participate in online forums, communities, and cybersecurity competitions such as TryHackMe. These platforms allow me to challenge myself, learn from peers, and apply my skills in practical, real-world scenarios.</p>
+                    <!-- Quick stats -->
+                    <div style="display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
+                        <div>
+                            <div style="font-family: 'Orbitron', sans-serif; font-size: 2rem; color: var(--accent-green); text-shadow: 0 0 10px var(--accent-green);">20+</div>
+                            <div style="font-size: 0.9rem;">CTF Compitions</div>
+                        </div>
+                        <div>
+                            <div style="font-family: 'Orbitron', sans-serif; font-size: 2rem; color: var(--accent-green); text-shadow: 0 0 10px var(--accent-green);">100+</div>
+                            <div style="font-size: 0.9rem;">Vulnerabilities Learned</div>
+                        </div>
+                        <div>
+                            <div style="font-family: 'Orbitron', sans-serif; font-size: 2rem; color: var(--accent-green); text-shadow: 0 0 10px var(--accent-green);">50+</div>
+                            <div style="font-size: 0.9rem;">THM Rooms</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            <p class="about__text">Ultimately, my aim is to make a positive impact on the digital world by combining my skills in web design and cybersecurity. Whether it’s building secure websites for businesses, creating engaging user experiences, or protecting data from cyber threats, I am dedicated to contributing to the internet’s safety and accessibility. I am excited about the opportunities that lie ahead and am determined to continue learning and growing in both fields.</p>
-        </div>                                   
+        <!-- SKILLS SECTION -->
+        <section id="skills">
+            <h2 class="section-title">SKILLS_MATRIX</h2>
+            
+            <div class="skills-showcase">
+                <!-- Penetration Testing Category -->
+                <div class="skill-category" data-category="PENETRATION">
+                    <h3><i class="fas fa-skull"></i> PENETRATION TESTING</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name"><i class="fas fa-bug"></i> Vulnerability Assessment</span>
+                                <span class="skill-percent"><!--fill--></span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" style="width: 30%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name"><i class="fas fa-network-wired"></i> Network Hacking</span>
+                                <span class="skill-percent"><!--fill--></span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" style="width: 45%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name"><i class="fas fa-wifi"></i> Wireless Attacks</span>
+                                <span class="skill-percent"><!--fill--></span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" style="width: 35%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-badge-container">
+                        <span class="skill-badge">Metasploit</span>
+                        <span class="skill-badge">Nmap</span>
+                        <span class="skill-badge">Wireshark</span>
+                        <span class="skill-badge">Burp Suite</span>
+                    </div>
+                </div>
+
+                <!-- Web Security Category -->
+                <div class="skill-category" data-category="WEB SECURITY">
+                    <h3><i class="fas fa-globe"></i> WEB APPLICATION</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name"><i class="fas fa-code"></i> XSS / CSRF</span>
+                                <span class="skill-percent"><!--fill--></span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" style="width: 60%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name"><i class="fas fa-database"></i> SQL Injection</span>
+                                <span class="skill-percent"><!--fill--></span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" style="width: 48%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name"><i class="fas fa-lock"></i> Authentication Bypass</span>
+                                <span class="skill-percent"><!--fill--></span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" style="width: 30%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-badge-container">
+                        <span class="skill-badge">OWASP</span>
+                        <span class="skill-badge">JWT</span>
+                        <span class="skill-badge">Session Hijacking</span>
+                    </div>
+                </div>
+
+                <!-- Programming & Tools Category -->
+                <div class="skill-category" data-category="DEVELOPMENT">
+                    <h3><i class="fas fa-terminal"></i> PROGRAMMING</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name"><i class="fab fa-python"></i> Python</span>
+                                <span class="skill-percent"><!--fill--></span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" style="width: 70%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name"><i class="fab fa-js"></i> JavaScript</span>
+                                <span class="skill-percent"><!--fill--></span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" style="width: 60%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name"><i class="fas fa-code-branch"></i> Bash / PowerShell</span>
+                                <span class="skill-percent"><!--fill--></1--fill--></span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-badge-container">
+                        <span class="skill-badge">Automation</span>
+                        <span class="skill-badge">Exploit Dev</span>
+                        <span class="skill-badge">Scripting</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Cyber Skills Badges -->
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 3rem;">
+                <span class="skill-badge" style="padding: 0.8rem 1.5rem;">🔓 Cryptography</span>
+                <span class="skill-badge" style="padding: 0.8rem 1.5rem;">🛡️ Social Engineering</span>
+                <span class="skill-badge" style="padding: 0.8rem 1.5rem;">🌐 Reverse Engineering</span>
+                <span class="skill-badge" style="padding: 0.8rem 1.5rem;">📡 Forensics</span>
+                <span class="skill-badge" style="padding: 0.8rem 1.5rem;">⚡ IoT Hacking</span>
+                <span class="skill-badge" style="padding: 0.8rem 1.5rem;">🤖 AI Security</span>
+            </div>
+        </section>
+
+        <!-- PROJECT SECTION -->
+        <section id="project">
+            <h2 class="section-title">Project</h2>
+            
+            <div class="featured-project">
+                <div class="project-media">
+                    <div class="project-image">
+                        <!-- Add your project image here -->
+                        <img src="images/project1.jpg" alt="Joker Compiler">
+                    </div>
+                </div>
+
+                <div class="project-content">
+                    <h3 style="font-family: 'Orbitron', sans-serif; color: var(--accent-green); font-size: 2rem; margin-bottom: 1rem; text-shadow: 0 0 10px var(--accent-green);">
+                        Intelligent Compiler
+                    </h3>
+                    
+                    <p style="margin-bottom: 2rem;">
+                        An online intelligent compiler built for developers who like their code with a side of chaos. Supports 7 programming languages with real-time compilation and AI-powered code suggestions.
+                    </p>
+
+                    <div class="project-stats">
+                        <div class="project-stat">
+                            <div class="project-stat-value">1k+</div>
+                            <div class="project-stat-label">Users</div>
+                        </div>
+                        <div class="project-stat">
+                            <div class="project-stat-value">98%</div>
+                            <div class="project-stat-label">Success Rate</div>
+                        </div>
+                        <div class="project-stat">
+                            <div class="project-stat-value">24/7</div>
+                            <div class="project-stat-label">Active</div>
+                        </div>
+                    </div>
+
+                    <div class="project-tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">C++</span>
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">C</span>
+                        <span class="tech-tag">HTML</span>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="https://github.com/KADHIRAVANEG/IntelligentCompiler" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> VIEW CODE
+                        </a>
+                        <a href="https://intelligentcompiler.onrender.com/" target="_blank" class="project-link">
+                            <i class="fas fa-code"></i> TRY DEMO
+                        </a>
+                        <a href="https://doi.org/10.5281/zenodo.17586551" target="_blank" class="project-link">
+                            <i class="fas fa-file-alt"></i> DOCS
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact">
+            <h2 class="section-title">CONTACT_TERMINAL</h2>
+            
+            <div class="contact-cyber">
+                <div class="contact-info-cyber">
+                    <h3>$> Get_in touch</h3>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-user-secret"></i>
+                        <span>KADHIRAVAN</span>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <span>kadhiravanegk@gmail.com</span>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+91 95976 45268</span>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>India / The Dark Web</span>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-clock"></i>
+                        <span>Available 24/7 for security gigs</span>
+                    </div>
+
+                    <div class="contact-social">
+                        <a href="https://github.com/KADHIRAVANEG/" target="_blank" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/kadhiravan-e-g-028818327" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.instagram.com/__kadhiravan__?igsh=ZHg1YnozanBvOGFs" target="_blank" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://discord.gg/" target="_blank" title="Discord">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="https://tryhackme.com/r/p/JOKER53" target="_blank" title="TryHackMe">
+                            <i class="fas fa-shield-alt"></i>
+                        </a>
+                    </div>
+
+                    <div style="margin-top: 2rem; padding: 1rem; border: 2px dashed var(--accent-purple);">
+                        <i class="fas fa-shield-alt" style="color: var(--accent-green); text-shadow: 0 0 5px var(--accent-green);"></i>
+                        <span style="margin-left: 1rem;">PGP Key available on request</span>
+                    </div>
+                </div>
+
+                <div class="cyber-form">
+                    <form action="https://formspree.io/f/xwppjnle" method="POST">
+                        <div class="form-group">
+                            <label>// Your Alias</label>
+                            <input type="text" name="name" required placeholder="Enter your handle...">
+                        </div>
+                        <div class="form-group">
+                            <label>// Secure Email</label>
+                            <input type="email" name="email" required placeholder="your@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label>// Subject</label>
+                            <input type="text" name="subject" required placeholder="What's the mission?">
+                        </div>
+                        <div class="form-group">
+                            <label>// Encrypted Message</label>
+                            <textarea name="message" required placeholder="Your secure message..."></textarea>
+                        </div>
+                        <button type="submit" class="cyber-submit">SEND MESSAGE</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="cyber-footer">
+            <p style="color: var(--text-primary);">> System compromised by KADHIRAVAN</p>
+            <p style="color: var(--accent-green); margin-top: 1rem; text-shadow: 0 0 5px var(--accent-green);">© 2026 - Hacking the planet with a smile</p>
+            <div class="footer-glitch">JOKER WAS HERE</div>
+        </footer>
     </div>
-</section>
 
-    <!-- About Section 
-    <section id="about" class="container text-center my-5">
-        <center><h2>About Me</h2></center>
-        <div class="row">
-            <div class="col-md-4 text-center">
-                <img src="https://raw.githubusercontent.com/KADHIRAVANEG/Profile-picture/ea86656ed8216188e42f165c632fffd1aea96a3e/IMG_20240930_135658_186.webp" alt="Kadhiravan" class="profile-img mb-4">
-                
-            </div>
-            <div class="col-md-8">
-            <h2 class="about__subtitle">I'm KADHIRAVAN</h2>
-            <p class="about__text">I am deeply passionate about the world of web design and cybersecurity. From an early age, I’ve been intrigued by how the internet connects people and businesses, and I’ve always sought to understand the technicalities that make it work. This curiosity eventually led me to pursue a career in the ever-evolving field of cybersecurity, while also honing my skills as a web designer.</p>
-
-            <p class="about__text">Web design has always fascinated me due to its creativity and impact on user experience. It’s not just about creating aesthetically pleasing websites; it’s about ensuring that the users who visit those sites have a seamless and efficient experience. Whether it's a personal portfolio, a business landing page, or an e-commerce website, every design decision can significantly impact how users perceive the brand and interact with the content. With this understanding, I have developed a keen interest in making websites both visually appealing and functional. I constantly strive to improve my skills by learning new technologies and implementing them into my projects. Every day, I push myself to understand the intricacies of web development, from responsive design and HTML5 to CSS3 and JavaScript, and I incorporate those learnings into my work.</p>
-
-            <p class="about__text">Alongside web design, cybersecurity is another field that has captured my attention. In today’s increasingly digital world, securing sensitive data and maintaining privacy are more important than ever. Cyber threats are constantly evolving, and I am committed to understanding the complexities of these challenges. My interest in cybersecurity stems from a desire to protect online systems from malicious attacks and ensure that data remains safe. I have gained knowledge in areas such as network security, encryption, ethical hacking, and penetration testing, which allows me to identify vulnerabilities and design systems that are secure from potential threats.</p>
-
-            <p class="about__text">As a web designer and cybersecurity enthusiast, my goal is to merge both disciplines and create user-friendly, innovative, and secure web applications. I am always looking for ways to integrate security measures into my web designs, ensuring that users not only have a great experience but also feel confident in the safety of their personal data. This includes using encryption for data protection, designing secure login processes, and preventing common vulnerabilities such as cross-site scripting (XSS) and SQL injection.</p>
-
-            <p class="about__text">In addition to my technical skills, I believe in the power of continuous learning. The fields of web design and cybersecurity are fast-paced and ever-changing, and staying updated with the latest trends and best practices is essential. To keep up with these developments, I regularly participate in online forums, communities, and cybersecurity competitions such as TryHackMe. These platforms allow me to challenge myself, learn from peers, and apply my skills in practical, real-world scenarios.</p>
-
-            <p class="about__text">Ultimately, my aim is to make a positive impact on the digital world by combining my skills in web design and cybersecurity. Whether it’s building secure websites for businesses, creating engaging user experiences, or protecting data from cyber threats, I am dedicated to contributing to the internet’s safety and accessibility. I am excited about the opportunities that lie ahead and am determined to continue learning and growing in both fields.</p>
-       
-               
-            </div>
-        </div>
-    </section>-->
-
-    <!-- Skills Section -->
-    <section id="skills" class="container my-5">
-        <h2 class="text-center">Skills</h2>
-        <div class="row">
-            <div class="col-md-4 text-center">
-                <h3>Web Design</h3>
-                <div class="progress">
-                    <div class="progress-bar" style="width: 80%;">80%</div>
-                </div>
-            </div>
-            <div class="col-md-4 text-center">
-                <h3>Cybersecurity</h3>
-                <div class="progress">
-                    <div class="progress-bar bg-success" style="width: 75%;">75%</div>
-                </div>
-            </div>
-            <div class="col-md-4 text-center">
-                <h3>Programming</h3>
-                <div class="progress">
-                    <div class="progress-bar bg-info" style="width: 85%;">85%</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="container text-center my-5">
-        <h2>Portfolio</h2>
-        <p>Check out my projects and cybersecurity work.</p>
-        <a href="https://tryhackme.com/r/p/JOKER53" class="btn btn-primary">View TryHackMe Profile</a>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="container my-5">
-        <h2 class="text-center">Contact Me</h2>
-        <form action="https://formspree.io/f/xwppjnle" method="POST">
-            <input type="text" name="name" class="form-control my-2" placeholder="Your Name" required>
-            <input type="email" name="email" class="form-control my-2" placeholder="Your Email" required>
-            <textarea name="message" class="form-control my-2" placeholder="Your Message" required></textarea>
-            <button type="submit" class="btn btn-dark w-100">Send Message</button>
-        </form>
-    </section>
-    <footer class="text-center bg-dark text-white py-3">
-    <div class="social-icons">
-        <!-- LinkedIn -->
-        <a href="https://www.linkedin.com/in/kadhiravan-e-g-028818327" class="footer__icon">
-            <i class="fab fa-linkedin"></i>
-        </a>
-        <!-- Instagram -->
-        <a href="https://www.instagram.com/__kadhiravan__?igsh=ZHg1YnozanBvOGFs" class="footer__icon">
-            <i class="fab fa-instagram"></i>
-        </a>
-        <!-- TryHackMe -->
-        <a href="https://tryhackme.com/r/p/JOKER53" class="footer__icon">
-            <i class="fab fa-tryhackme"></i>
-        </a>
-    </div>
-    <p>© 2025 Kadhiravan. All Rights Reserved.</p>
-    </footer>
-
-    <!-- Footer -->
-    <!--<footer class="text-center bg-dark text-white py-3">
-        <div class="social-icons">
-            <a href="https://www.linkedin.com/in/kadhiravan-e-g-028818327" class="footer__icon"><i class='bx bxl-linkedin'></i></a>
-            <a href="https://www.instagram.com/__kadhiravan__?igsh=ZHg1YnozanBvOGFs" class="footer__icon"><i class='bx bxl-instagram'></i></a>
-            <a href="https://tryhackme.com/r/p/JOKER53" class="footer__icon"><i class='bx bxl-tryhackme'></i></a>
-        </div>
-        <p>© 2025 Kadhiravan. All Rights Reserved.</p>
-    </footer>-->
-
-  <!-- <script>
-        document.getElementById('dark-mode-toggle').addEventListener('click', function() {
-            document.body.classList.toggle('dark-mode');
+    <!-- JavaScript -->
+    <script>
+        // Loading animation
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('fade-out');
+            }, 2000);
         });
-    </script>-->
-    <script>
-    // Dark Mode Toggle
-document.getElementById('dark-mode-toggle').addEventListener('click', function() {
-    document.body.classList.toggle('hacker-red-mode');
 
-    // Change the icon dynamically
-    let icon = this.querySelector('i');
-    if (document.body.classList.contains('hacker-red-mode')) {
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
-    } else {
-        icon.classList.remove('fa-sun');
-        icon.classList.add('fa-moon');
-    }
-});
+        // Create GREEN binary rain
+        function createBinaryRain() {
+            const container = document.getElementById('binaryRain');
+            const columns = 30;
+            
+            for(let i = 0; i < columns; i++) {
+                const column = document.createElement('div');
+                column.className = 'binary-column';
+                
+                column.style.left = Math.random() * 100 + '%';
+                const duration = 15 + Math.random() * 20;
+                column.style.animationDuration = duration + 's';
+                column.style.animationDelay = -Math.random() * 20 + 's';
+                
+                let binaryString = '';
+                const length = 50;
+                for(let j = 0; j < length; j++) {
+                    binaryString += Math.random() > 0.5 ? '1' : '0';
+                    if(j < length - 1) binaryString += '<br>';
+                }
+                
+                column.innerHTML = binaryString;
+                container.appendChild(column);
+            }
+        }
+
+        createBinaryRain();
+
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Dark/Light mode toggle
+        const themeToggle = document.getElementById('themeToggle');
+        
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            const icon = themeToggle.querySelector('i');
+            if (theme === 'dark') {
+                icon.className = 'fas fa-moon';
+            } else {
+                icon.className = 'fas fa-sun';
+            }
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active link on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.style.color = 'var(--accent-green)';
+                    link.style.textShadow = '0 0 10px var(--accent-green)';
+                } else {
+                    link.style.color = '';
+                    link.style.textShadow = '';
+                }
+            });
+        });
     </script>
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-    window.sr = ScrollReveal();
-    
-    sr.reveal('.section-title', {
-        duration: 1500,
-        origin: 'top',
-        distance: '30px',
-        easing: 'ease-out'
-    });
-
-    sr.reveal('.about__text', {
-        duration: 1500,
-        origin: 'left',
-        distance: '50px',
-        delay: 500
-    });
-
-    sr.reveal('.profile-img', {
-        duration: 1500,
-        origin: 'left',
-        distance: '50px',
-        delay: 300
-    });
-    </script>
-
 </body>
 </html>
