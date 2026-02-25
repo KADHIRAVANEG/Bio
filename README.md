@@ -39,3 +39,10 @@ An online intelligent compiler built for developers.
 
 ---
 
+
+![GitHub Security Advisory](https://img.shields.io/github/advisories/policy/KADHIRAVANEG/Portfolio?style=for-the-badge&color=blueviolet)
+![Dependabot Status](https://img.shields.io/badge/Dependabot-Active-brightgreen?style=for-the-badge&logo=dependabot)
+
+
+---
+
